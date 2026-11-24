@@ -10,11 +10,12 @@
     </head>
     <body class="d-flex flex-column min-vh-100">
         <jsp:include page="/WEB-INF/pages/menu.jsp"/>
-            <main class="container-fluid mt-5">
-                <jsp:doBody/>
-            </main>
-            <footer class="container text-center mt-auto py-3">
-                <p>&copy; 2026 Armeanca Stefan</p>
-            </footer>
+        <main class="container-fluid mt-5">
+            <jsp:doBody/>
+        </main>
+        <script src="${pageContext.request.contextPath}/scripts/form-validation.js"></script>
+        <footer class="container text-center mt-auto py-3">
+            <p>&copy; 2026 Armeanca Stefan</p>
+        </footer>
     </body>
 </html>
