@@ -1,0 +1,8 @@
+The EJBs will contain all the business logic for the application
+usecases and all the interaction with the
+persistence. How the business logic works should be hidden from the
+presentation layers.
+
+IMPORTANT!
+Entity classes should not be returned and should not be
+received as parameters in the EJB methods!
