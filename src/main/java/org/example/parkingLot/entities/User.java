@@ -2,14 +2,20 @@ package org.example.parkingLot.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "user")
 public class User
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-
     private Long id;
+
+    @OneToMany(mappedBy = "owner", orphanRemoval = true)
+    private List<Car> cars = new ArrayList<>();
+
     private String password;
     private String email;
     private String username;
@@ -23,10 +29,11 @@ public class User
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }
 
+    public List<Car> getCars() { return cars; }
+    public void setCars(List<Car> cars) { this.cars = cars; }
+
     public Long getId() {
         return id;
     }
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 }

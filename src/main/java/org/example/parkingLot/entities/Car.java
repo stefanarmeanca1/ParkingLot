@@ -10,8 +10,8 @@ import java.util.List;
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-
     private Long id;
+
     private String parkingSpot;
     private String licensePlate;
 
@@ -19,14 +19,8 @@ public class Car {
     @JoinColumn(name = "owner_id", nullable = false)
     private User owner;
 
-    @OneToMany(mappedBy = "owner", orphanRemoval = true)
-    private List<Car> cars = new ArrayList<>();
-
     public User getOwner() { return owner; }
     public void setOwner(User owner) { this.owner = owner; }
-
-    public List<Car> getCars() { return cars; }
-    public void setCars(List<Car> cars) { this.cars = cars; }
 
     public String getParkingSpot() { return parkingSpot; }
     public void setParkingSpot(String parkingSpot) { this.parkingSpot = parkingSpot; }
