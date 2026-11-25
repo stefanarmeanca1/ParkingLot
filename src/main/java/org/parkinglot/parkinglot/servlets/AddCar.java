@@ -34,7 +34,7 @@ public class AddCar extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException
     {
-        String licensePlate = request.getParameter("license_spot");
+        String licensePlate = request.getParameter("license_plate");
         String parkingSpot = request.getParameter("parking_spot");
         Long userId = Long.parseLong(request.getParameter("owner_id"));
 

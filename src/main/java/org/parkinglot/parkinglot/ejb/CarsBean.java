@@ -38,11 +38,37 @@ public class CarsBean
     public List<CarDTO> findAllCars() {
         LOG.info("findAllCars");
 
-        try {
+        try
+        {
             TypedQuery<Car> typedQuery = entitiyManager.createQuery("SELECT c FROM Car c", Car.class);
             List<Car> cars = typedQuery.getResultList();
+
             return copyCarsToDTO(cars);
-        } catch (Exception ex) {
+        }
+
+        catch (Exception ex)
+        {
+            throw new EJBException(ex);
+        }
+    }
+
+    public CarDTO findByID(Long id)
+    {
+        LOG.info("findByID");
+        try
+        {
+            Car car = entitiyManager.find(Car.class, id);
+
+            if(car == null) return null;
+            return new CarDTO(car.getId(),
+                              car.getLicensePlate(),
+                              car.getParkingSpot(),
+                              car.getOwner().getUsername());
+        }
+
+
+        catch (Exception ex)
+        {
             throw new EJBException(ex);
         }
     }
