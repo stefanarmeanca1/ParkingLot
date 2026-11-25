@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <t:pageTemplate pageTitle="Add Car">
     <h1>Add Car</h1>
@@ -35,9 +36,12 @@
                 <label for="owner_id">Owner</label>
                 <select class="form-select" id="owner_id"
                         name="owner_id" required>
-
                     <option value="">Choose...</option>
-
+                    <c:forEach var="user" items="${users}" varStatus="status">
+                        <option value="${user.id}">
+                            ${user.username}
+                        </option>
+                    </c:forEach>
                 </select>
 
                 <div class="invalid-feedback">
